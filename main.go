@@ -10,7 +10,6 @@ import (
 
 func main() {
 	jsonFile, err := os.Open("introspectedData.json")
-	// if we os.Open returns an error then handle it
 	if err != nil {
 		fmt.Println(err)
 	}
