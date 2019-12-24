@@ -1,22 +1,19 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"jsontostruct/ironic"
-	"os"
+	"jsontostruct/utils"
+	"jsontostruct/validation"
 )
 
 func main() {
-	jsonFile, err := os.Open("introspectedData.json")
-	if err != nil {
-		fmt.Println(err)
-	}
 
-	jsonString, _ := ioutil.ReadAll(jsonFile)
+	hosts := utils.FetchHosts()
+	expectedHardwareDetails := utils.ExtractExpectedHardwareDetails()
 
-	ironicData := ironic.Data{}
-	json.Unmarshal([]byte(jsonString), &ironicData)
-	fmt.Println(ironicData)
+	fmt.Println(hosts)
+	fmt.Println(expectedHardwareDetails)
+
+	validHostList := validation.Valid(hosts, expectedHardwareDetails)
+	fmt.Println(validHostList)
 }
