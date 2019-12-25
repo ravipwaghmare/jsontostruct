@@ -68,7 +68,7 @@ func isValid(job ironic.Job) bool {
 			if job.ExpectedHardwareConfiguration.ExpectedNICS.NumberOfNICS < job.Host.Spec.HardwareDetails.Nics.NoOfNics {
 				fmt.Println("Number of Nics are avialale, Now Check RAM")
 				if job.ExpectedHardwareConfiguration.ExpectedRAM < job.Host.Spec.HardwareDetails.Memory.PhysicalMb {
-					fmt.Println("RAM is avialale, Now Check Vendor Name")
+					fmt.Println("RAM is available, Now Check Vendor Name")
 					if job.ExpectedHardwareConfiguration.ExpectedSystemVendor.Name == job.Host.Spec.HardwareDetails.SystemVendor.Manufacturer {
 						fmt.Println("Host Found")
 						return true
