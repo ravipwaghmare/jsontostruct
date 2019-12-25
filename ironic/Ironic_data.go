@@ -21,6 +21,8 @@ type HardwareDetails struct {
 	SystemVendor SystemVendor `json:"system_vendor"`
 	Memory       Memory       `json:"memory"`
 	CPU          CPU          `json:"cpu"`
+	Storage      Storage      `json:"storage"`
+	Nics         Nics         `json:"nics"`
 }
 
 // Boot boot details
@@ -47,8 +49,19 @@ type CPU struct {
 
 // Memory memory details
 type Memory struct {
-	PhysicalMb int   `json:"physical_mb"`
-	Total      int64 `json:"total"`
+	PhysicalMb int `json:"physical_mb"`
+	Total      int `json:"total"`
+}
+
+// Storage details
+type Storage struct {
+	SizeBytes     int `json:"size_bytes"`
+	NumberOfDisks int `json:"noOfDisks"`
+}
+
+// Nics count
+type Nics struct {
+	NoOfNics int `json:"noOfNics"`
 }
 
 // ExpectedHardwareConfiguration details to match with the host
@@ -79,4 +92,17 @@ type ExpectedNICS struct {
 // ExpectedSystemVendor Vendor details
 type ExpectedSystemVendor struct {
 	Name string `json:"name"`
+}
+
+//Job jobs to be executed
+type Job struct {
+	ID                            int
+	Host                          Host
+	ExpectedHardwareConfiguration ExpectedHardwareConfiguration
+}
+
+//Result store result of job
+type Result struct {
+	Job     Job
+	IsValid bool
 }
