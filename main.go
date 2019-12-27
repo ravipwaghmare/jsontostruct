@@ -11,6 +11,7 @@ func main() {
 
 	startTime := time.Now()
 	hosts := utils.FetchHosts()
+	fmt.Println("Host Array Size", len(hosts.Host))
 	expectedHardwareDetails := utils.ExtractExpectedHardwareDetails()
 	validHostList := validation.Valid(hosts, expectedHardwareDetails)
 	fmt.Println(validHostList)
