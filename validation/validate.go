@@ -10,7 +10,7 @@ var jobs = make(chan ironic.Job, 50)
 var results = make(chan ironic.Result, 50)
 
 // Valid returns true or false according to the test condition
-func Valid(hostList ironic.Data, expectedHardwareConfig ironic.ExpectedHardwareConfiguration) []ironic.Host {
+func Valid(hostList ironic.Data, expectedHardwareConfig ironic.Profile) []ironic.Host {
 	go allocate(hostList, expectedHardwareConfig)
 	done := make(chan []ironic.Host)
 	go result(done)
@@ -24,10 +24,14 @@ func checkValidation(host ironic.Host, expected ironic.ExpectedHardwareConfigura
 	return false
 }
 
-func allocate(hostList ironic.Data, expectedHardwareConfig ironic.ExpectedHardwareConfiguration) {
+func allocate(hostList ironic.Data, expectedHardwareConfig ironic.Profile) {
 	for i := 0; i < len(hostList.Host); i++ {
-		job := ironic.Job{i, hostList.Host[i], expectedHardwareConfig}
-		jobs <- job
+
+		for _, expected := range expectedHardwareConfig.ExpectedHardwareConfiguration {
+			job := ironic.Job{i, hostList.Host[i], expected}
+			jobs <- job
+		}
+
 	}
 
 	close(jobs)

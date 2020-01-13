@@ -23,7 +23,7 @@ func FetchHosts() ironic.Data {
 }
 
 // ExtractExpectedHardwareDetails it returns the expected hardware details
-func ExtractExpectedHardwareDetails() ironic.ExpectedHardwareConfiguration {
+func ExtractExpectedHardwareDetails() ironic.Profile {
 
 	jsonFile, err := os.Open("expectedHardwareConfiguration.json")
 	if err != nil {
@@ -32,7 +32,7 @@ func ExtractExpectedHardwareDetails() ironic.ExpectedHardwareConfiguration {
 
 	jsonString, _ := ioutil.ReadAll(jsonFile)
 
-	expectedHardwareConfiguration := ironic.ExpectedHardwareConfiguration{}
+	expectedHardwareConfiguration := ironic.Profile{}
 	json.Unmarshal([]byte(jsonString), &expectedHardwareConfiguration)
 	return expectedHardwareConfiguration
 }

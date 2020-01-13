@@ -64,6 +64,11 @@ type Nics struct {
 	NoOfNics int `json:"noOfNics"`
 }
 
+//Profile Expected hardware profile to match with the host
+type Profile struct {
+	ExpectedHardwareConfiguration []ExpectedHardwareConfiguration `json:"expectedValidationConfiguration"`
+}
+
 // ExpectedHardwareConfiguration details to match with the host
 type ExpectedHardwareConfiguration struct {
 	ExpectedCPU          ExpectedCPU          `json:"expectedCPU"`
