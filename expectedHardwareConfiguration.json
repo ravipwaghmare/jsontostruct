@@ -1,5 +1,6 @@
 {
 	"expectedValidationConfiguration": [{
+		"profileName" : "Profile 1",
 		"expectedCPU": {
 			"count": 5
 		},
@@ -12,7 +13,75 @@
 		},
 		"expectedRAM": 16,
 		"expectedSystemVendor": {
-			"name": "Dell"
+			"name": "Dell Inc."
+		}
+	},
+	{
+		"profileName" : "Profile 2",
+		"expectedCPU": {
+			"count": 4
+		},
+		"expectedDisk": {
+			"sizeBytesGB": 50,
+			"numberOfDisks": 6
+		},
+		"expectedNICS": {
+			"numberOfNICS": 12
+		},
+		"expectedRAM": 24,
+		"expectedSystemVendor": {
+			"name": "Dell Inc."
+		}
+	},
+{
+		"profileName" : "Profile 3",
+		"expectedCPU": {
+			"count": 7
+		},
+		"expectedDisk": {
+			"sizeBytesGB": 45,
+			"numberOfDisks": 9
+		},
+		"expectedNICS": {
+			"numberOfNICS": 6
+		},
+		"expectedRAM": 8,
+		"expectedSystemVendor": {
+			"name": "Dell Inc."
+		}
+	},
+	{
+		"profileName" : "Profile 4",
+		"expectedCPU": {
+			"count": 2
+		},
+		"expectedDisk": {
+			"sizeBytesGB": 100,
+			"numberOfDisks": 20
+		},
+		"expectedNICS": {
+			"numberOfNICS": 50
+		},
+		"expectedRAM": 64,
+		"expectedSystemVendor": {
+			"name": "Dell Inc."
+		}
+	},
+	{
+		"profileName" : "Profile 5",
+		"expectedCPU": {
+			"count": 15
+		},
+		"expectedDisk": {
+			"sizeBytesGB": 250,
+			"numberOfDisks": 10
+		},
+		"expectedNICS": {
+			"numberOfNICS": 17
+		},
+		"expectedRAM": 32,
+		"expectedSystemVendor": {
+			"name": "Dell Inc."
 		}
 	}]
 }
