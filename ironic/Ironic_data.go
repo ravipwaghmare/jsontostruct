@@ -40,11 +40,11 @@ type SystemVendor struct {
 
 // CPU cpu details
 type CPU struct {
-	Count        int      `json:"count"`
-	Frequency    string   `json:"frequency"`
-	Flags        []string `json:"flags"`
-	ModelName    string   `json:"model_name"`
-	Architecture string   `json:"architecture"`
+	Count     int    `json:"count"`
+	Frequency string `json:"frequency"`
+	// Flags        []string `json:"flags"`
+	ModelName    string `json:"model_name"`
+	Architecture string `json:"architecture"`
 }
 
 // Memory memory details
@@ -71,6 +71,7 @@ type Profile struct {
 
 // ExpectedHardwareConfiguration details to match with the host
 type ExpectedHardwareConfiguration struct {
+	ProfileName          string               `json:"profileName"`
 	ExpectedCPU          ExpectedCPU          `json:"expectedCPU"`
 	ExpectedDisk         ExpectedDisk         `json:"expectedDisk"`
 	ExpectedNICS         ExpectedNICS         `json:"expectedNICS"`
